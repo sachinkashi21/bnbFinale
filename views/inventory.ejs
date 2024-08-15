@@ -1,0 +1,138 @@
+<% layout("layout/boilerplate")%>
+
+    <h1>Inventory</h1>
+    <table id="items-table">
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Increase Quantity</th>
+                <th>Decrease Quantity</th>
+                <th>remove item</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be dynamically generated here -->
+        </tbody>
+
+    </table>
+    <button id="additem" class="btn btn-success">Add Item</button>
+    <a href="../craft/index.html"><button id="craftItem" class="btn btn-success">Craft Item</button></a>
+    <form action="" id="addItemForm">
+        <label for="">Name</label>
+        <input type="text" id="name" autocomplete="off">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity">
+        <label for="">price</label>
+        <input type="number" id="price">
+        <a href="./index.html"><button type="submit" class="frmbtn btn">submit</button></a>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tableBody = document.querySelector('#items-table tbody');
+
+            // Sample data (you can replace this with your actual data)
+            let items = [
+                { id: 1, name: 'Item 1', quantity: 5, price: '$10' },
+                { id: 2, name: 'Item 2', quantity: 3, price: '$15' },
+                { id: 3, name: 'Item 3', quantity: 2, price: '$20' }
+            ];
+
+            const handleDelete = (id) => {
+                const index = items.findIndex(item => item.id === id);
+                if (index !== -1) {
+                    items.splice(index, 1); // Remove the item from the array
+                    renderTable(); // Render the updated table
+                }
+            }
+
+
+            // Function to create table rows
+            function createTableRow(item) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price}</td>
+                <td><button class="increase-btn" data-index="${items.indexOf(item)}">+</button></td>
+                <td><button class="decrease-btn" data-index="${items.indexOf(item)}">-</button></td>
+                <td><button class="delete-btn" data-id="${item.id}">X</button></td>
+              `;
+                const deleteButton = row.querySelector('.delete-btn');
+                deleteButton.addEventListener('click', function () {
+                    const itemId = parseInt(this.getAttribute('data-id'));
+                    handleDelete(itemId);
+                });
+                return row;
+            }
+
+            // Function to update quantity and render table
+            function updateQuantity(index, increment) {
+                if (increment) {
+                    items[index].quantity++;
+                } else {
+                    items[index].quantity = Math.max(0, items[index].quantity - 1);
+                }
+                renderTable();
+            }
+
+            // Function to render table
+            function renderTable() {
+                tableBody.innerHTML = '';
+                for (let i = 0; i < items.length; i++) {
+                    tableBody.appendChild(createTableRow(items[i]))
+                }
+            }
+
+            // Initial table render
+            renderTable();
+
+            // Event listeners for quantity buttons
+            document.addEventListener('click', function (event) {
+                if (event.target.classList.contains('increase-btn')) {
+                    const index = parseInt(event.target.getAttribute('data-index'));
+                    updateQuantity(index, true);
+                } else if (event.target.classList.contains('decrease-btn')) {
+                    const index = parseInt(event.target.getAttribute('data-index'));
+                    updateQuantity(index, false);
+                }
+            });
+
+            // Form submission event listener
+            const additem = document.getElementById('additem');
+            const itemForm = document.getElementById('addItemForm');
+            const craftItem = document.getElementById('craftItem');
+            additem.addEventListener('click', () => {
+                additem.style.display = 'none';
+                itemForm.style.display = "block";
+                craftItem.style.display = 'none';
+            })
+            itemForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                itemForm.style.display = "none";
+                additem.style.display = 'block';
+                craftItem.style.display = 'block';
+                const itemName = document.getElementById('name').value;
+                const itemQuantity = parseInt(document.getElementById('quantity').value);
+                const itemPrice = parseFloat(document.getElementById('price').value);
+                if (!itemName || !itemQuantity || !itemPrice) {
+                    return;
+                }
+                const obj = {
+                    id: items[items.length - 1].id + 1,
+                    name: itemName,
+                    quantity: itemQuantity,
+                    price: `$${itemPrice}`
+                }
+                items.push(obj);
+                renderTable();
+                // Clear form fields
+                itemForm.reset();
+            });
+        });
+
+    </script>

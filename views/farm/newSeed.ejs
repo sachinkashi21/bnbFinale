@@ -1,0 +1,63 @@
+<% layout("layout/boilerplate")%>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3>Add Crop Seed</h3>
+            <form action="/farm/new" novalidate class="needs-validation" method="POST" >
+                <div class="mb-3">
+                    <label for="title" class="form-label">Name</label>
+                    <input type="text" required id="title" class="form-control title" placeholder="Name" name="seed[name]">    
+                    <div class="valid-feedback">looks good</div>
+                    <div class="invalid-feedback">Enter Title</div>
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Variety</label>
+                    <input type="text" required id="title" class="form-control title" placeholder="Variety" name="seed[variety]">    
+                    <div class="valid-feedback">looks good</div>
+                    <div class="invalid-feedback">Enter Title</div>
+                </div>
+                <label for="price" class="form-label">Quantity</label>
+                <div class="input-group mb-3 col-md-4">
+                    
+                    <input type="text" required id="price" class="form-control price" placeholder="Quantity" name="seed[quantity]" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text"></span>
+                    <div class="invalid-feedback">Enter a valid number</div>
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Minimum requirement: </label>
+                    <input type="number" name="seed[threshold]" id="quantity" class="form-control" required>
+                    <div class="invalid-feedback">Enter Uses</div>   
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Note: </label>
+                    <textarea id="description" required rows="3" class="form-control description" name="seed[note]"></textarea> 
+                    <div class="invalid-feedback">Enter Uses</div>   
+                </div>
+                <div class="mb-3">
+                    <label for="lifespan" class="form-label">life Span: </label>
+                    <div class="input-group">
+
+                        <input type="number" name="seed[lifeSpan]" id="lifespan" class="form-control" required>
+                        <span class="input-group-text">In Months</span>
+                    </div>
+                    <div class="invalid-feedback">Enter Uses</div>   
+                </div>
+                
+
+                
+
+               
+                
+                
+                <label for="price" class="form-label">Total cost</label>
+                <div class="input-group mb-3 col-md-4">
+                    <span class="input-group-text"> &#8377;</span>
+                    <input type="text" required id="price" class="form-control price" placeholder="price" name="seed[price]" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                    <div class="invalid-feedback">Enter a valid number</div>
+                </div>
+                
+                <button class="btn btn-dark mt-3 mb-3 add-btn">Submit</button>
+            </form>
+            
+        </div>
+    </div>

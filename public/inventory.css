@@ -1,0 +1,70 @@
+/* Basic styling */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+button {
+  /* padding: 6px 12px;
+  border: none; */
+  cursor: pointer;
+}
+
+label,
+input {
+  display: block;
+  /* margin: 10px auto; */
+  margin: 10px;
+  width: 100%;
+  font-size: 1.25rem;
+}
+#addItemForm {
+  display: none;
+}
+
+thead th {
+  background-color: lightblue;
+}
+tr:nth-child(even) {
+  background-color: powderblue;
+}
+/* .btn {
+  background-color: steelblue;
+  color: white;
+} */
+h1 {
+  text-align: center;
+}
+/* .btn {
+  display: block;
+  width: 40%;
+  margin: 0 auto; /* This centers the button */
+/* font-size: 1.25rem;
+} */
+*/ #addItemForm {
+  max-width: 400px;
+  width: 400px; /* Adjust the width as needed */
+  margin: 0 auto; /* This centers the form */
+}
+.frmbtn {
+  width: 40vw;
+}
+a {
+  text-decoration: none;
+}
+#additem,
+#craftItem {
+  margin-top: 10px;
+}

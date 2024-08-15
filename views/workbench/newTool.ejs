@@ -1,0 +1,63 @@
+<% layout("layout/boilerplate")%>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3>Add Tool</h3>
+            <form action="/workbench/new" novalidate class="needs-validation" method="POST" >
+                <div class="mb-3">
+                    <label for="title" class="form-label">Name</label>
+                    <input type="text" required id="title" class="form-control title" placeholder="Name" name="tool[name]">    
+                    <div class="valid-feedback">looks good</div>
+                    <div class="invalid-feedback">Enter Title</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Used for</label>
+                    <textarea id="description" required rows="3" class="form-control description" name="tool[uses]"></textarea> 
+                    <div class="invalid-feedback">Enter Uses</div>   
+                </div>
+                
+
+                <div class="mb-3">
+                    <label for="resource" class="form-label">Enter resources</label>
+                    <input type="text"  placeholder="resource 1" id="resource" class="form-control mb-1" name="tool[resource][0]">
+                    <input type="text"  placeholder="resource 2" id="resource" class="form-control mb-1" name="tool[resource][1]">
+                    <input type="text"  placeholder="resource 3" id="resource" class="form-control mb-1" name="tool[resource][2]">
+                    <div class="valid-feedback">looks good</div>
+                    <div class="invalid-feedback">Enter Title</div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label col-4">Country</label>
+                        <input type="text" required id="country" class="form-control country col-8" placeholder="country" name="listing[country]">
+                        <div class="invalid-feedback">Enter Country</div>
+                    </div> -->
+                    <!-- <div class="mb-3 col-md-4">
+                        <label for="category" class="form-label">Category</label>
+                        <select name="listing[category]" id="category" class="form-control form-select" aria-label="Default select example">
+                            <option value="none" selected>None</option>
+                            <option value="Pool-equiped">Pool Equiped</option>
+                            <option value="Beach">Beach Side</option>
+                            <option value="Castles">Castle</option>
+                            <option value="Farms">Farm Side House</option>
+                            <option value="Mansions">Mansion</option>
+                            <option value="Camping">Camping House</option>
+                            <option value="Mountain-side">Mountain Side House</option>
+                            <option value="Arctic">Arctic House</option>
+                            <option value="Island">Boat House</option>
+                        </select>
+                    </div> -->
+
+                </div>
+                <label for="price" class="form-label">Total cost</label>
+                <div class="input-group mb-3 col-md-4">
+                    <span class="input-group-text"> &#8377;</span>
+                    <input type="text" required id="price" class="form-control price" placeholder="price" name="tool[price]" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                    <div class="invalid-feedback">Enter a valid number</div>
+                </div>
+                
+                <button class="btn btn-dark mt-3 mb-3 add-btn">Submit</button>
+            </form>
+            
+        </div>
+    </div>

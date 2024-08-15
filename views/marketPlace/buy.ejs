@@ -1,0 +1,88 @@
+<% layout("layout/boilerplate")%>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 100vw;
+    margin: 50px auto;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+  }
+  
+  #postForm {
+    margin-bottom: 20px;
+  }
+  
+  input,
+  button {
+    margin: 5px;
+    padding: 8px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .buyBtn {
+    background-color: darkgreen;
+    color: white;
+    border: none;
+  }
+  .buyBtn:hover {
+    background-color: lightgreen;
+    color: black;
+  }
+  .buyContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .buyItem {
+    text-align: center;
+    min-width: 300px;
+    min-height: 300px;
+    height: auto;
+    box-shadow: 0px 0px 5px rgb(209, 192, 192);
+    border-radius: 5px;
+    padding: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: purple;
+  }
+  .payBtn {
+    background-color: black;
+    color: white;
+  }
+</style>
+<div class="buyContainer">
+    <div class="buyItem">
+        <a href="/market"><button class="buyBtn">Go Back &larr; </button></a>
+        <h3>Seller Name : Anirudh</h3>
+        <a href="tel:+1234567890">
+            <h4>Call Us: +1 (234) 567-890</h4>
+        </a>
+        <h3>Item : Apples</h3>
+        <h3>Quantity : 10</h3>
+        <h3>Total Price : $10</h3>
+        <button class="payBtn">Pay Now &#128179;</button>
+    </div>
+</div>

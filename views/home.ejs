@@ -1,0 +1,53 @@
+<% layout("layout/boilerplate")%>
+
+<div class="m-3 " >
+    <img class="d-block mx-auto " style="width: 80%; border: 1px solid #198754d0; border-radius: 10px;" src="her0_img.jpg" alt=""  >
+    <h3 class="display-6  text-body-emphasis" style="text-align: center;font-weight: 400;"><em>Seeds to Success</em>: The Intelligent Inventory</h3>
+    <div class="col-lg-8 mx-auto">
+      <p class="lead mb-4" style="font-size: 1.5rem;font-weight: 400;">SmartFarm Inventory Solution is a revolutionary platform designed to streamline farming activities for modern farmers like Steve. Offering real-time inventory tracking for seeds, tools, and resources, our intuitive interface ensures efficient management. Additionally, our system provides automated tool crafting suggestions, empowering farmers to maximize productivity and optimize their harvests with ease.</p>
+    </div>
+  </div>
+
+  <script>
+    let checkThreshold=()=>{
+
+    }
+    window.addEventListener("load",()=>{
+      let nameData;
+      fetch("http://localhost:3000/noti")
+      .then(response => {
+                // Check if the request was successful (status code 200)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                // Parse the JSON response
+                return response.json();
+            })
+            .then(data => {
+                // Handle the data (an array in this case)
+                
+                nameData=[...data];
+                console.log(nameData);
+                if(nameData && nameData.length){
+                  sendNoti(nameData);
+                }
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Fetch error:', error);
+            })
+      
+    })
+    let sendNoti=(data)=>{
+        Notification.requestPermission().then(perm=>{
+            if(perm=="granted"){
+                const notif=new Notification("Warning!",{
+                    body: data.map(e => e).join(', ')+" are running out of stock",
+                    data: {hello: "Buy grains for your crops now"}
+                })
+
+                
+            }
+        })
+    }
+  </script>

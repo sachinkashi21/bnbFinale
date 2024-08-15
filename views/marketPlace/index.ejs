@@ -1,0 +1,21 @@
+<% layout("layout/boilerplate")%>
+
+<link rel="stylesheet" href="styles.css">
+
+    <div class="container">
+        <h1>Farmers Marketplace</h1>
+        <div id="postForm">
+            <h2>Sell? Add a Post</h2>
+            <input type="text" id="cropName" placeholder="Crop Name">
+            <input type="number" id="quantity" placeholder="Quantity">
+            <input type="number" id="price" placeholder="Price">
+            <button onclick="addPost()" class="buyBtn">Add Post</button>
+        </div>
+        <h2>Buy?</h2>
+        <div id="posts">
+            <h2>Posts</h2>
+            <!-- Posts will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>

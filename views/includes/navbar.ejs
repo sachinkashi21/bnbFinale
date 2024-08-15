@@ -1,0 +1,44 @@
+<%if(!currUser){%>
+  <nav class="navbar bg-body-tertiary" style="line-height: 4rem">
+    <div class="container-fluid">
+      <div class="mx-auto">Your farm at one stop location <a class="text-body-secondary"
+          href="/listings">Green-Minds</a>. Please Login to continue</div>
+    </div>
+  </nav>
+  <%}%>
+    <nav class="navbar navbar-expand-sm bg-body-light sticky-top border-bottom border-top mb-3"
+      style="background-color: white;line-height: 3rem;">
+      <div class="container-fluid">
+        <a class="navbar-brand col-1" href="/">
+          <i class="fa-solid fa-leaf fs-1 mx-5" style="color: #63E6BE;"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="background-color: white;">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/workbench">Work Bench</a>
+            <a class="nav-link" href="/inventory">Inventory</a>
+            <a class="nav-link" href="/market">Market Place</a>
+          </div>
+
+
+
+          <div class="navbar-nav ms-auto" style="line-height: 3rem;">
+            <a class=" btn btn-outline-success " href="/farm" style="line-height: 3rem;">Your farm</a>&nbsp;
+
+            <% if(!currUser){ %>
+              <button class="btn btn-outline-success rounded-pill"
+                onclick="location.href = '/signUp';" style="width: 6rem;" >Sign-Up</button>&nbsp;
+              <button class="btn btn-outline-success rounded-pill"
+                onclick="location.href = '/login';" style="width: 6rem;">Log-In</button>&nbsp;
+              <% } %>
+                <% if(currUser){ %>
+                  <a class="btn btn-success mx-3" href="/logout" style="width: 5rem;">Log-Out</a>&nbsp;
+                  <% } %>
+          </div>
+        </div>
+      </div>
+    </nav>

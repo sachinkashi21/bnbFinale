@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+  }
+  
+  #postForm {
+    margin-bottom: 20px;
+  }
+  
+  input,
+  button {
+    margin: 5px;
+    padding: 8px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .buyBtn {
+    background-color: darkgreen;
+    color: white;
+    border: none;
+  }
+  .buyBtn:hover {
+    background-color: lightgreen;
+    color: black;
+  }
+  .buyContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .buyItem {
+    text-align: center;
+    min-width: 300px;
+    min-height: 300px;
+    height: auto;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: purple;
+  }
+  .payBtn {
+    background-color: black;
+    color: white;
+  }

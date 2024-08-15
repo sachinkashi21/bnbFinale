@@ -1,0 +1,60 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.container{
+    flex:1;
+}
+
+.navbar{
+    background-color: white;
+    height: 5rem;
+}
+
+.nav-link{
+    color: black !important;
+}
+
+
+.f-info-links a{
+    text-decoration: none;
+    color:#222222;
+    margin:0 0.5rem;
+    font-size: 0.9rem;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info-brand{
+    font-size: 0.9rem;
+}
+.f-info-social i{
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+footer{
+    height: 5.5rem;
+    max-width: 100vw;
+
+}
+
+.f-info>div{
+    padding-top: 0.5rem;
+    width:100%;
+    height: 2rem;
+    text-align: center;
+}
+
+.f-info{
+    width: 90vw;
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    display:flex;   
+    align-items: center;
+    flex-wrap: wrap;
+}
+
